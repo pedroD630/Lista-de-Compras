@@ -70,8 +70,14 @@
       // focus no input
       
       // quando clicar em deletar 
-      // receber elemento clicado
-      // remover todo o li parent do elemento
+      lista.addEventListener('click', function(event) {
+      // Verifique se o clique ocorreu no botão de delete
+        if (event.target.classList.contains('delete')) {
+          // Encontre o elemento pai (li) do botão clicado
+          var itemToRemove = event.target.closest('li');
+          itemToRemove.remove();
+       }
+      });
 
     </script>
   </body>
