@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping list example</title>
     <style>
       li {
@@ -17,68 +17,52 @@
     </style>
   </head>
   <body>
-
     <h1>My shopping list</h1>
 
     <div>
       <label for="item">Enter a new item:</label>
-      <input type="text" name="item" id="item">
+      <input type="text" name="item" id="item" />
       <button id="add-btn">Add item</button>
     </div>
 
-    <ul>
-
-    </ul>
+    <ul></ul>
 
     <script>
+      var lista = document.querySelector("ul");
+      var input = document.querySelector("input");
+      var addBtn = document.querySelector("#add-btn");
 
-      var lista = document.querySelector('ul');
-      var input = document.querySelector('input');
-      var addBtn = document.querySelector('#add-btn');
-
-      // quando clicar em adicionar
-      addBtn.addEventListener('click', () => {
-        if(input.value.trim() != '' ) {
+      addBtn.addEventListener("click", () => {
+        if (input.value.trim() != "") {
           var item = input.value;
 
-          input.value = '';
+          input.value = "";
 
           var li = document.createElement("li");
 
           var span = document.createElement("span");
           span.textContent = `${item}`;
-          
+
           var button = document.createElement("button");
           button.textContent = "Delete";
-          button.classList.add('delete');
-          
+          button.classList.add("delete");
+
           li.appendChild(span);
           li.appendChild(button);
           lista.appendChild(li);
 
           input.focus();
-
         }
       });
-      // receber o nome do item em uma variavel
-      // limpar o input
-      // adiciona-lo à lista
-      // adicionar junto ao elemento um botão de deletar
-        // os dois elementos devem estar dentro de um li. O texto dentro de um span deve ser irmão de um botão de delete
-      // exibir no DOM ( append li children of ul )
-      
-      // focus no input
-      
-      // quando clicar em deletar 
-      lista.addEventListener('click', function(event) {
-      // Verifique se o clique ocorreu no botão de delete
-        if (event.target.classList.contains('delete')) {
-          // Encontre o elemento pai (li) do botão clicado
-          var itemToRemove = event.target.closest('li');
-          itemToRemove.remove();
-       }
-      });
 
+      lista.addEventListener("click", function (event) {
+        // Verifique se o clique ocorreu no botão de delete
+        if (event.target.classList.contains("delete")) {
+          // Encontre o elemento pai (li) do botão clicado
+          var itemToRemove = event.target.closest("li");
+          itemToRemove.remove();
+        }
+      });
     </script>
   </body>
 </html>
