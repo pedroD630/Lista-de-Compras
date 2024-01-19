@@ -37,6 +37,29 @@
       var addBtn = document.querySelector('#add-btn');
 
       // quando clicar em adicionar
+      addBtn.addEventListener('click', () => {
+        if(input.value.trim() != '' ) {
+          var item = input.value;
+
+          input.value = '';
+
+          var li = document.createElement("li");
+
+          var span = document.createElement("span");
+          span.textContent = `${item}`;
+          
+          var button = document.createElement("button");
+          button.textContent = "Delete";
+          button.classList.add('delete');
+          
+          li.appendChild(span);
+          li.appendChild(button);
+          lista.appendChild(li);
+
+          input.focus();
+
+        }
+      });
       // receber o nome do item em uma variavel
       // limpar o input
       // adiciona-lo à lista
